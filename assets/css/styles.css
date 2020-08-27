@@ -37,9 +37,6 @@
   height: 547px;
 }
 
-.button-group {
-}
-
 .category-selector {
   border: 2px solid white;
   width: 231px;
@@ -56,9 +53,7 @@
   margin-top: 17px;
 }
 
-.w-100 {
-  /*width: 66!important;*/
-}
+
 
 .carousel-inner {
   position: relative;
@@ -84,8 +79,7 @@
   display: none;
 }
 
-#carousel-1 {
-}
+
 
 .image-container {
   width: 60%;
@@ -251,8 +245,7 @@ span {
   margin-top: -20px;
 }
 
-.main-header {
-}
+
 
 .main-header-customer-about-us {
   font-family: Poppins;
