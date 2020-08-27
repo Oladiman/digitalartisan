@@ -583,6 +583,8 @@ a:hover {
   font-weight: normal;
   margin-top: auto;
   font-size: 30px;
+  color:#000000;
+  opacity: 0.9;
   line-height: 45px;
 }
 
