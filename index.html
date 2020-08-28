@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Digital-Artisans</title>
+    <title>Digital-Artisan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -26,12 +26,59 @@
     </nav>
     <div class="main-view">
         <div class="main-img"><img src="assets/img/iphoneDA.svg" loading="auto"></div>
-        <p class="text-break home-text home-text-index">Say Hello to Digital Artisan</p><a class="forward-arrow-index" href="overlay.html" target="_top"><img class="img-size" src="assets/img/Vector.svg"></a>
+        <p class="text-break home-text home-text-index">Say Hello to Digital Artisan</p><a class="forward-arrow-index" id="forward-eva" href="#" target="_top"><img class="img-size" src="assets/img/Vector.svg"></a>
+    </div>
+    <div>
+        <div 
+            class="catergory-overlay" 
+            id ="catergory-overlay" 
+            style="display: block;
+            background-color: rgb(210, 180, 140);
+            position: absolute;
+            width: 80%;
+            height: 547px;
+            top: 15%;
+            left: 12%;
+            z-index: 10;
+            border-radius: 2%;
+            display: none;"
+            >
+            <p class="text-nowrap text-center" style="font-size: 30px;font-weight: normal;">PLEASE PICK WHICH CATEGORY YOU WOULD LIKE TODAY?<br></p>
+            <div class="d-xl-flex flex-column align-items-xl-center button-container">
+                <a href="customer-homepage.html">
+                    <div class="category-selector">
+                        <p class="d-md-flex justify-content-md-center category-selector-text">CUSTOMER</p>
+                    </div>
+                </a>
+                <a href="artisan-homepage.html">
+                    <div class="category-selector">
+                        <p class="d-md-flex justify-content-md-center category-selector-text">ARTISAN</p>
+                    </div>
+                </a>
+                <a href="vendor-homepage.html">
+                    <div class="category-selector">
+                        <p class="d-md-flex justify-content-md-center category-selector-text">VENDOR</p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function showModal(){
+        document.getElementById("catergory-overlay").style.display = "block";
+      }
+      $(document).ready(function(){
+        setTimeout(showModal, 2000)
+      });
+      document.getElementById("forward-eva").onclick= function() { 
+          showModal();
+      }
+  </script>
 </body>
 
 </html>
