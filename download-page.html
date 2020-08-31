@@ -7,12 +7,24 @@
     <title>Digital-Artisan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-    <script type="text/javascript">
-    (function(){
-        emailjs.init("user_nBkI4i2WZlI8m8nuL6kGj");
-    })();
-    </script> -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -33,13 +45,13 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6"><img class="download-app-img" src="assets/img/downloadPage-phone-icon.svg"><a href="error-page.html">Link<img class="download-img-download-page" src="assets/img/download.svg"></a></div>
+                <div class="col-md-6" onclick="sendEmail()"><img class="download-app-img" src="assets/img/downloadPage-phone-icon.svg"><a href="#">Link<img class="download-img-download-page" src="assets/img/download.svg"></a></div>
                 <div class="col-md-6 second-column">
                     <div class="main-text-heading">
-                        <form>
-                            <div class="form-key"><span class="loc-span">Name</span><input class="form-control form-input" type="text" placeholder="e.g Ambimbola Grace"></div>
-                            <div class="form-key email-input"><span class="loc-span">Email</span><input class="form-control justify-content-end form-input" type="text" placeholder="e.g ambimbola@gmail.com"></div>
-                            <div class="form-key"><span class="loc-span">Location</span><input class="form-control form-input" type="text" placeholder="e.g Fadeyi, Lagos state"></div>
+                        <form id="former">
+                            <div class="form-key"><span class="loc-span">Name</span><input class="form-control form-input" type="text" placeholder="e.g Ambimbola Grace" id="name" value=""></div>
+                            <div class="form-key email-input"><span class="loc-span">Email</span><input class="form-control justify-content-end form-input" type="email" placeholder="e.g ambimbola@gmail.com" id="email"></div>
+                            <div class="form-key"><span class="loc-span">Location</span><input class="form-control form-input" type="text" placeholder="e.g Fadeyi, Lagos state" id="location"></div>
                         </form>
                     </div>
                 </div>
@@ -48,18 +60,14 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- <script type="text/javascript">
+        (function(){
+            emailjs.init("user_2nlWpPQdfMgWnlDTQGVU9");
+        })();
+        </script> -->
     <script>
-    //     Email.send({
-    //     Host : "smtp.yourisp.com",
-    //     Username : "username",
-    //     Password : "password",
-    //     To : 'them@website.com',
-    //     From : "you@isp.com",
-    //     Subject : "This is the subject",
-    //     Body : "And this is the body"
-    // }).then(
-    // message => alert(message)
-    // );
 
 //     var templateParams = {
 //     name: 'James',
@@ -67,13 +75,61 @@
 //     location: 'lagos'
 
 // };
- 
-// emailjs.send('YOUR_SERVICE_ID', 'template_blKQgfh6', templateParams)
-//     .then(function(response) {
-//        console.log('SUCCESS!', response.status, response.text);
-//     }, function(error) {
-//        console.log('FAILED...', error);
-//     });
+    function sendEmail(){
+        var name_input = $('#name').val();
+        var email_input = $('#email').val();
+        var location_input = $('#location').val();
+
+        if(name_input=='') {
+            alert("Check your name input");
+            window.location.href = '#';
+            }
+        else{
+            if (email_input==''|| !email_input.includes('@')){
+                alert("Enter a valid email");
+                window.location.href = '#';
+            }
+            else{
+                var data = {
+                    service_id: 'zoho',
+                    template_id: 'template_TXLs9sFf',
+                    user_id: 'user_2nlWpPQdfMgWnlDTQGVU9',
+                    template_params: {
+                        'name': name_input,
+                        'email': email_input,
+                        'location': location_input,
+            }
+        };
+        
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json'
+        }).done(function() {
+            Toastify({
+                text: "Your mail is sent!",
+                duration: 1000,
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                className: "success",
+             }).showToast();
+            // alert('Your mail is sent!');
+        }).done( function(){
+            setTimeout(window.location.href = 'error-page.html', 1000);
+        }   
+        ).fail(function(error) {
+            Toastify({
+                text: 'Oops, something went wrong',
+                duration: 3000,
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                className: "warning",
+             }).showToast();
+            // alert('Oops... ' + JSON.stringify(error));
+        });
+            }
+        }
+    }
+
+        
     </script>
 </body>
 
